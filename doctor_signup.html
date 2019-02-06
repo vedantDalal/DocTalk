@@ -1,34 +1,101 @@
 <html>
     <head>
-        <title>Doctor Home</title>
+        <title>Doctor SignUp</title>
         <link rel="icon" type="image/ico" href="Images/logo.png" />
         <link href="doctor_signup.css" rel="stylesheet"></link>
-        <link href="https://fonts.googleapis.com/css?family=PT+Mono|Righteous|Source+Code+Pro|Changa|Grand+Hotel|Quantico|Fauna+One" rel="stylesheet">
+        <script rel="text/javascript" src="doctor_signup.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=PT+Mono|Righteous|Source+Code+Pro|Changa|Grand+Hotel|Quantico|Fauna+One|Ubuntu|Bitter|Staatliches" rel="stylesheet">
     </head>
     <body class="bg_image">
         <div class="heading">
             <image src="Images/logo1.png" width="3.5%" alt="DocTalk Logo"/>ocTalk Pvt. Ltd.
         </div>
-        <form name="doctor_signup">
+        <div class="loginbox">
+            <form name="doctor_signup">
                 <div class="form_heading">Doctor's Sign Up</div>
                 <p class="condition">Please fill in this form to create an account.</p>
                 <p class="condition">* marked are mandatory to be filled.</p>
                 <hr>
-            
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
-            
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-            
-                <label for="psw-repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                <div class="elements">
+                    <label for="email"><b>Email*</b></label><br>
+                    <input type="text" placeholder="Enter Email" name="email" required><br>
                 
-                <label>
-                  <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                </label>
+                    <label for="psw"><b>Password*</b></label><br>
+                    <input type="password" placeholder="Enter Password" name="psw" required><br>
                 
-                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-        </form>
+                    <label for="psw-repeat"><b>Confirm Password*</b></label><br>
+                    <input type="password" placeholder="Confirm Password" name="psw-repeat" required><br>
+
+                    <label for="name"><b>Full Name*</b></label><br>
+                    <input type="text" placeholder="Full Name" name="f-name" required><br>
+
+                    <label><b>Medical Council Name*</b></label><br>
+                    <input type="text" placeholder="Enter Medical Council Name" name="med-counc-name" required><br>
+
+                    <label><b>Medical Registration No.*</b></label><br>
+                    <input type="text" placeholder="Enter Medical Registration No." name="med-reg-no" required><br>
+
+                    <label><b>Clinic/Hospital Name*</b></label><br>
+                    <input type="text" placeholder="Enter Clinic/Hospital Name" name="clinic-name" required><br>
+
+                    <label><b>Clinic/Hospital Address</b></label><br>
+                    <input type="textbox" placeholder="Enter Clinic/Hospital Address" name="clinic-address"><br>
+
+                    <label><b>State*</b></label><br>
+                        <select name="stateslist" class="dropdownbtn">
+                            <option selected="selected">---Select State---</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Orissa">Orissa</option>
+                            <option value="Pondicherry">Pondicherry</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Tamil Nadu">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttaranchal">Uttarakhand</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+
+                    <label><b>Phone no.</b></label><br>
+                    <input type="number" placeholder="Enter Phone no." name="phone-no"><br>
+
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label><br>
+                </div>    
+                <p style="font-family: Bitter">By creating an account you agree to our <a href="#" style="color:#8479c9">Terms & Privacy</a>.</p><br>
+
+                <div class="clearfix">
+                    <button type="button" class="cancelbtn" onclick="cancelSignUp()">Cancel</button>
+                    <button type="submit" class="signupbtn" onclick="signUp()">Sign Up</button>
+                </div>
+            </form>
+        </div>
     </body>
 </html>
