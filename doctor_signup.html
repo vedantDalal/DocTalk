@@ -3,7 +3,8 @@
         <title>Doctor SignUp</title>
         <link rel="icon" type="image/ico" href="Images/logo.png" />
         <link href="doctor_signup.css" rel="stylesheet"></link>
-        <script rel="text/javascript" src="doctor_signup.js"></script>
+        <!-- <script rel="text/javascript" src="doctor_signup.js"></script> -->
+     
         <link href="https://fonts.googleapis.com/css?family=PT+Mono|Righteous|Source+Code+Pro|Changa|Grand+Hotel|Quantico|Fauna+One|Ubuntu|Bitter|Staatliches" rel="stylesheet">
     </head>
     <body class="bg_image">
@@ -18,31 +19,31 @@
                 <hr>
                 <div class="elements">
                     <label for="email"><b>Email*</b></label><br>
-                    <input type="text" placeholder="Enter Email" name="email" required><br>
+                    <input type="text" placeholder="Enter Email" id="email" required><br>
                 
                     <label for="psw"><b>Password*</b></label><br>
-                    <input type="password" placeholder="Enter Password" name="psw" required><br>
+                    <input type="password" placeholder="Enter Password" id="password" required><br>
                 
-                    <label for="psw-repeat"><b>Confirm Password*</b></label><br>
-                    <input type="password" placeholder="Confirm Password" name="psw-repeat" required><br>
+                    <!-- <label for="psw-repeat"><b>Confirm Password*</b></label><br>
+                    <input type="password" placeholder="Confirm Password" name="psw-repeat" required><br> -->
 
                     <label for="name"><b>Full Name*</b></label><br>
-                    <input type="text" placeholder="Full Name" name="f-name" required><br>
+                    <input type="text" placeholder="Full Name" id="f-name" required><br>
 
-                    <label><b>Medical Council Name*</b></label><br>
-                    <input type="text" placeholder="Enter Medical Council Name" name="med-counc-name" required><br>
+                    <!-- <label><b>Medical Council Name*</b></label><br>
+                    <input type="text" placeholder="Enter Medical Council Name" name="med-counc-name" required><br> -->
 
                     <label><b>Medical Registration No.*</b></label><br>
-                    <input type="text" placeholder="Enter Medical Registration No." name="med-reg-no" required><br>
+                    <input type="text" placeholder="Enter Medical Registration No." id="med-reg-no" required><br>
 
-                    <label><b>Clinic/Hospital Name*</b></label><br>
+                    <!-- <label><b>Clinic/Hospital Name*</b></label><br>
                     <input type="text" placeholder="Enter Clinic/Hospital Name" name="clinic-name" required><br>
 
                     <label><b>Clinic/Hospital Address</b></label><br>
-                    <input type="textbox" placeholder="Enter Clinic/Hospital Address" name="clinic-address"><br>
+                    <input type="textbox" placeholder="Enter Clinic/Hospital Address" name="clinic-address"><br> -->
 
                     <label><b>State*</b></label><br>
-                        <select name="stateslist" class="dropdownbtn">
+                        <select id="stateslist" class="dropdownbtn">
                             <option selected="selected">---Select State---</option>
                             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -83,7 +84,7 @@
                         </select>
 
                     <label><b>Phone no.</b></label><br>
-                    <input type="number" placeholder="Enter Phone no." name="phone-no"><br>
+                    <input type="number" placeholder="Enter Phone no." id="phone-no"><br>
 
                     <label>
                         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
@@ -92,10 +93,13 @@
                 <p style="font-family: Bitter">By creating an account you agree to our <a href="#" style="color:#8479c9">Terms & Privacy</a>.</p><br>
 
                 <div class="clearfix">
-                    <button type="button" class="cancelbtn" onclick="cancelSignUp()">Cancel</button>
-                    <button type="submit" class="signupbtn" onclick="signUp()">Sign Up</button>
+                    <!-- <button type="button" class="cancelbtn" onclick="cancelSignUp()">Cancel</button> -->
+                    <button id="btSign" class="signupbtn" >Sign Up</button>
                 </div>
             </form>
         </div>
+
+        <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+        <script src="fire_sign.js"></script>
     </body>
 </html>
