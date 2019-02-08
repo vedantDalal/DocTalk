@@ -8,29 +8,31 @@
     messagingSenderId: "1039956260614"
   };
   firebase.initializeApp(config);
-  function writeDoctorData(email,psw,name,state,phno) {
+  function writePatientData(email,psw,name,state,phno,address) {
 
-    firebase.database().ref('doctor').push().set({
-      email:email,
-      password:psw,
-      fname:name,
-      stateOfResidence:state,
-      contact:phno,
+    firebase.database().ref('patient').push().set({
+        email:email,
+        password: psw,
+        fname:name,
+        residence:address,
+        stateOfResidence:state,
+        contact:phno,
         },
         function(error) {
-          if (error) {
-            alert("Data could not be saved." + error);
-          } else {
-              window.location.assign("doctor_home.html");
-          }
-        });
-
+            if (error) {
+              alert("Data could not be saved." + error);
+            } else {
+                window.location.assign("patient_home.html");
+            }
+          });
+    
     }
 
   var emailField = document.getElementById("email");
   var pswField = document.getElementById("password");
   var nameField = document.getElementById("f-name");
 //   var regnoField = document.getElementById("med-reg-no");
+  var addressField = document.getElementById("address");
   var stateField = document.getElementById("stateslist");
   var phField = document.getElementById("phone-no");
   var btSignup = document.getElementById("btSign");
@@ -39,17 +41,17 @@
     const email=emailField.value;
     const psw=pswField.value;
     const name = nameField.value;
-    // const regno = regnoField.value;
+    const address = addressField.value;
     const state = stateField.options[stateField.selectedIndex].value;
     const phno = phField.value;
     // console.log(name,regno,state,phNo);
  
 
-    // writeDoctorData(email,psw,name,regno,state,phNo);
+    // writePatientData(email,psw,name,state,phNo,address);
     const auth=firebase.auth();
     const promise=auth.createUserWithEmailAndPassword(email,psw);
-    (promise.then(function (){writeDoctorData(email,psw,name,state,phno);}).catch(e => alert(e.message)));
-    // writeDoctorData(email,psw,name,state,phno);
+    (promise.then(function (){writePatientData(email,psw,name,state,phno,address);}).catch(e => alert(e.message)));
+    // writePatientData(email,psw,name,state,phno,address);
 });
 // btSignup.addEventListener("click",e => {
 //     const email=emailField.value;

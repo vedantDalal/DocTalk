@@ -8,7 +8,7 @@
     </head>
     <body class="bg_image">
         <div class="heading">
-            <image src="Images/logo1.png" width="3.5%" alt="DocTalk Logo"/>ocTalk Pvt. Ltd.
+            <img src="Images/logo1.png" width="3.5%" alt="DocTalk Logo"/>ocTalk Pvt. Ltd.
         </div>
         <div class="loginbox">
             <form name="doctor_signup">
@@ -18,22 +18,19 @@
                 <hr>
                 <div class="elements">
                     <label for="email"><b>Email*</b></label><br>
-                    <input type="text" placeholder="Enter Email" name="email" required><br>
+                    <input type="text" placeholder="Enter Email" name="email" id="email" required><br>
                 
                     <label for="psw"><b>Password*</b></label><br>
-                    <input type="password" placeholder="Enter Password" name="psw" required><br>
-                
-                    <label for="psw-repeat"><b>Confirm Password*</b></label><br>
-                    <input type="password" placeholder="Confirm Password" name="psw-repeat" required><br>
+                    <input type="password" placeholder="Enter Password" name="psw" id="password" required><br>
 
                     <label><b>Full Name*</b></label><br>
-                    <input type="text" placeholder="Enter Medical Council Name" name="med-counc-name" required><br>
+                    <input type="text" placeholder="Enter Your Name" name="med-counc-name" id="f-name" required><br>
 
                     <label><b>Address*</b></label><br>
-                    <input type="text" placeholder="Enter Medical Registration No." name="med-reg-no" required><br>
+                    <input type="text" placeholder="Enter Address" name="med-reg-no" id="address" required><br>
 
                     <label><b>State*</b></label><br>
-                        <select name="stateslist" class="dropdownbtn">
+                        <select name="stateslist" id="stateslist" class="dropdownbtn">
                             <option selected="selected"> - - - Select State - - - </option>
                             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -74,19 +71,18 @@
                         </select>
 
                     <label><b>Phone no.</b></label><br>
-                    <input type="number" placeholder="Enter Phone no." name="phone-no" required><br>
+                    <input type="number" placeholder="Enter Phone no." name="phone-no" id="phone-no" required><br>
 
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                    </label><br>
                 </div>    
                 <p style="font-family: Bitter">By creating an account you agree to our <a href="#" style="color:#8479c9">Terms & Privacy</a>.</p><br>
 
                 <div class="clearfix">
                     <button type="button" class="cancelbtn" onclick="cancelSignUp()">Cancel</button>
-                    <button type="submit" class="signupbtn" onclick="signUp()">Sign Up</button>
+                    <button id="btSign" class="signupbtn" >Sign Up</button>
                 </div>
             </form>
         </div>
+        <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+        <script src="fire_pat_sign.js"></script>
     </body>
 </html>
