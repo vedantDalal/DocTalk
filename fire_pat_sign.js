@@ -16,7 +16,7 @@
         fname:name,
         residence:address,
         stateOfResidence:state,
-        contact:phno,
+        contact:phno
         },
         function(error) {
             if (error) {
@@ -45,26 +45,16 @@
     const state = stateField.options[stateField.selectedIndex].value;
     const phno = phField.value;
     // console.log(name,regno,state,phNo);
- 
-
-    // writePatientData(email,psw,name,state,phNo,address);
-    const auth=firebase.auth();
-    const promise=auth.createUserWithEmailAndPassword(email,psw);
-    (promise.then(function (){writePatientData(email,psw,name,state,phno,address);}).catch(e => alert(e.message)));
-    // writePatientData(email,psw,name,state,phno,address);
+    if(email==""||psw==""||name==""||address==""||state==""){}
+    else
+    {
+        const auth=firebase.auth();
+        const promise=auth.createUserWithEmailAndPassword(email,psw);
+        (promise.then(function (){writePatientData(email,psw,name,state,phno,address);}).catch(e => alert(e.message)));
+         // writePatientData(email,psw,name,state,phno,address);
+    }
 });
-// btSignup.addEventListener("click",e => {
-//     const email=emailField.value;
-//     const psw=pswField.value;
-//     console.log("asd-"+email+psw);
-//     const auth=firebase.auth();
-//     const promise=auth.createUserWithEmailAndPassword(email,psw);
-//     promise
-//             .catch(e => console.log(e.message));
 
-//     // console.log(promise);
-
-// })
 
 firebase.auth().onAuthStateChanged(firebaseUser =>  {
     if(firebaseUser){

@@ -8,14 +8,14 @@
     messagingSenderId: "1039956260614"
   };
   firebase.initializeApp(config);
-  function writeDoctorData(email,psw,name,state,phno) {
+  function writeDoctorData(email,psw,state,phno) {
 
     firebase.database().ref('doctor').push().set({
       email:email,
       password:psw,
-      fname:name,
+      
       stateOfResidence:state,
-      contact:phno,
+      contact:phno
         },
         function(error) {
           if (error) {
@@ -30,7 +30,7 @@
   var emailField = document.getElementById("email");
   var pswField = document.getElementById("password");
   var nameField = document.getElementById("f-name");
-//   var regnoField = document.getElementById("med-reg-no");
+  var regnoField = document.getElementById("med-reg-no");
   var stateField = document.getElementById("stateslist");
   var phField = document.getElementById("phone-no");
   var btSignup = document.getElementById("btSign");
@@ -39,30 +39,21 @@
     const email=emailField.value;
     const psw=pswField.value;
     const name = nameField.value;
-    // const regno = regnoField.value;
+    const regno = regnoField.value;
     const state = stateField.options[stateField.selectedIndex].value;
     const phno = phField.value;
     // console.log(name,regno,state,phNo);
- 
+ if(email==""||psw==""||name==""||state==""||phno==""||regno=="")
+{
 
-    // writeDoctorData(email,psw,name,regno,state,phNo);
+}
+else{
     const auth=firebase.auth();
     const promise=auth.createUserWithEmailAndPassword(email,psw);
-    (promise.then(function (){writeDoctorData(email,psw,name,state,phno);}).catch(e => alert(e.message)));
-    // writeDoctorData(email,psw,name,state,phno);
+    (promise.then(function (){writeDoctorData(email,psw,state,phno);}).catch(e => alert(e.message)));
+}
 });
-// btSignup.addEventListener("click",e => {
-//     const email=emailField.value;
-//     const psw=pswField.value;
-//     console.log("asd-"+email+psw);
-//     const auth=firebase.auth();
-//     const promise=auth.createUserWithEmailAndPassword(email,psw);
-//     promise
-//             .catch(e => console.log(e.message));
 
-//     // console.log(promise);
-
-// })
 
 firebase.auth().onAuthStateChanged(firebaseUser =>  {
     if(firebaseUser){
