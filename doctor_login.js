@@ -14,10 +14,10 @@
 //     }
 // }
 
-function validateEmail(emailValue) {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailValue)) {
-        return true;
-    }
-    alert("You have entered an Invalid E-mail ID");
-    return false;
-}
+// function validateEmail(emailValue) {
+//     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailValue)) {
+//         return true;
+//     }
+//     alert("You have entered an Invalid E-mail ID");
+//     return false;
+// }

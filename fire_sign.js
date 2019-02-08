@@ -8,11 +8,20 @@
     messagingSenderId: "1039956260614"
   };
   firebase.initializeApp(config);
+  function writeDoctorData(email,psw,name,state,phno) {
+
+    firebase.database().ref('doctor/' + email).set({
+      password: psw,
+      fname:name,
+        stateOfResidence:state,
+      contact:phno,
+        });
+    }
 
   var emailField = document.getElementById("email");
   var pswField = document.getElementById("password");
   var nameField = document.getElementById("f-name");
-  var regnoField = document.getElementById("med-reg-no");
+//   var regnoField = document.getElementById("med-reg-no");
   var stateField = document.getElementById("stateslist");
   var phField = document.getElementById("phone-no");
   var btSignup = document.getElementById("btSign");
@@ -21,13 +30,18 @@
     const email=emailField.value;
     const psw=pswField.value;
     const name = nameField.value;
-    const regno = regnoField.value;
+    // const regno = regnoField.value;
     const state = stateField.options[stateField.selectedIndex].value;
     const phNo = phField.value;
+    // console.log(name,regno,state,phNo);
+ 
+
+    // writeDoctorData(email,psw,name,regno,state,phNo);
     const auth=firebase.auth();
     const promise=auth.createUserWithEmailAndPassword(email,psw);
-    promise.catch(e => console.log(e.message));
-})
+    (promise.catch(e => alert(e.message)));
+    writeDoctorData(email,psw,name,state,phno);
+});
 // btSignup.addEventListener("click",e => {
 //     const email=emailField.value;
 //     const psw=pswField.value;
@@ -48,3 +62,6 @@ firebase.auth().onAuthStateChanged(firebaseUser =>  {
         console.log("not logged in");
     }
 })
+
+
+
