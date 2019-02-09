@@ -20,13 +20,3 @@ var config = {
     })
 }
 
-// function readUserData() {
-//     const user = unameField.value.trim();
-//     const psw = pswField.value.trim();
-//     const email = emailField.value.trim();
-//     const ref=firebase.database().ref('users/' + user);
-//     ref.on('value',function (snapshot){
-//         console.log(snapshot.val().lname);
-//     })
-    
-//     }
