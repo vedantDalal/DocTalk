@@ -66,5 +66,8 @@ firebase.auth().onAuthStateChanged(firebaseUser =>  {
     }
 })
 
-
-
+function cancelSignUp() {
+  alert("Are you sure?");
+  let s = window.location.href;
+  window.location.href = s.replace("doctor_signup", "doctor_login");
+}

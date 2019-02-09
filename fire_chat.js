@@ -10,13 +10,23 @@ var config = {
 
   function goToChat(a){
       user = firebase.auth().currentUser.uid;
-    if(a==0)
+    if(a==0) {
         var ref=firebase.database().ref('doctor/' + user);
-    else 
+        let sd = window.location.href;
+        window.location.href = sd.replace("doctor_home","index");
+    }
+    else {
         var ref=firebase.database().ref('patient/' + user);
+        let sp = window.location.href;
+        window.location.href = sp.replace("patient_home","index");
+    }
 
     ref.on('value',function (snapshot){
         console.log(snapshot.val().email);
     })
 }
 
+function goToDialogflow() {
+    let s = window.location.href;
+    window.location.href = s.replace("patient_home","trydialogflow");
+}
