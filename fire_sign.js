@@ -8,14 +8,18 @@
     messagingSenderId: "1039956260614"
   };
   firebase.initializeApp(config);
-  function writeDoctorData(email,psw,state,phno) {
 
-    firebase.database().ref('doctor').push().set({
+  function writeDoctorData(email,psw,name,regno,state,phno) {
+    var firebaseRef = firebase.database().ref();
+    user=firebase.auth().currentUser.uid;
+    console.log(user);
+    firebaseRef.child('doctor').child(user).set({
       email:email,
       password:psw,
-      
+      fname:name,
       stateOfResidence:state,
-      contact:phno
+      contact:phno,
+      medRegNo:regno
         },
         function(error) {
           if (error) {
@@ -42,7 +46,6 @@
     const regno = regnoField.value;
     const state = stateField.options[stateField.selectedIndex].value;
     const phno = phField.value;
-    // console.log(name,regno,state,phNo);
  if(email==""||psw==""||name==""||state==""||phno==""||regno=="")
 {
 
@@ -50,14 +53,14 @@
 else{
     const auth=firebase.auth();
     const promise=auth.createUserWithEmailAndPassword(email,psw);
-    (promise.then(function (){writeDoctorData(email,psw,state,phno);}).catch(e => alert(e.message)));
+    (promise.then(function (){writeDoctorData(email,psw,name,regno,state,phno);}).catch(e => alert(e.message)));
 }
 });
 
 
 firebase.auth().onAuthStateChanged(firebaseUser =>  {
     if(firebaseUser){
-        console.log(firebaseUser);
+        console.log(firebaseUser.uid);
     }else{
         console.log("not logged in");
     }

@@ -9,8 +9,10 @@
   };
   firebase.initializeApp(config);
   function writePatientData(email,psw,name,state,phno,address) {
-
-    firebase.database().ref('patient').push().set({
+    var firebaseRef = firebase.database().ref();
+    user=firebase.auth().currentUser.uid;
+    console.log(user);
+    firebaseRef.child('patient').child(user).set({
         email:email,
         password: psw,
         fname:name,
@@ -44,21 +46,19 @@
     const address = addressField.value;
     const state = stateField.options[stateField.selectedIndex].value;
     const phno = phField.value;
-    // console.log(name,regno,state,phNo);
     if(email==""||psw==""||name==""||address==""||state==""){}
     else
     {
         const auth=firebase.auth();
         const promise=auth.createUserWithEmailAndPassword(email,psw);
         (promise.then(function (){writePatientData(email,psw,name,state,phno,address);}).catch(e => alert(e.message)));
-         // writePatientData(email,psw,name,state,phno,address);
     }
 });
 
 
 firebase.auth().onAuthStateChanged(firebaseUser =>  {
     if(firebaseUser){
-        console.log(firebaseUser);
+        console.log(firebaseUser.uid);
     }else{
         console.log("not logged in");
     }
