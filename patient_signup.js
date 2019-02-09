@@ -1,7 +1,6 @@
 function cancelSignUp() {
     alert("Are you sure?");
-    let s = window.location.href;
-    window.location.href = s.replace("patient_signup", "patient_login");
+    window.location.assign("first.html");
 }
 
 function checkPassword() {
